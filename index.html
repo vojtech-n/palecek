@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="cz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Válka Palečků</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="card-holder">
+        <div class="card">
+            <img id="anicka-image" src="images/anicka-even.png" alt="anicka">
+            <h2>Anička</h2>
+            <p>Skóre: <span id="anicka-score">0</span></p>
+            <div class="input-holder">
+                <button id="anicka-minus-button">-</button>
+                <!-- just number that can be incremented and decremented by 1 by clicking the buttons -->
+                <input type="number" id="anicka-input" value="0" type="number" disabled>
+                <button id="anicka-plus-button">+</button>
+            </div>
+            <!-- <input type="checkbox" id="anicka-checkbox"> -->
+        </div>
+        <div class="card">
+            <img id="vojtech-image" src="images/vojtech-even.png" alt="vojtech">
+            <h2>Vojtěch</h2>
+            <p>Skóre: <span id="vojtech-score">0</span></p>
+            <div class="input-holder">
+                <button id="vojtech-minus-button">-</button>
+                <input type="number" id="vojtech-input" value="0" type="number" disabled>
+                <button id="vojtech-plus-button">+</button>
+            </div>
+            <!-- <input type="checkbox" id="vojtech-checkbox"> -->
+        </div>
+    </div>
+    <div class="button-holder">
+        <button id="confirm-button">Haf!</button>
+        <!-- <button id="reset-button">Mňau.</button> -->
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

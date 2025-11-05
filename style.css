@@ -1,0 +1,139 @@
+body {
+    font-family: 'JetBrains Mono', monospace; 
+    color: white;
+    background-color: black;
+}
+
+body {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card-holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+}
+
+.card img {
+    width: 185px;
+    height: 146px;
+    display: block;
+}
+
+.button-holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    color: white;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+}
+
+.input-holder input {
+    width: 50px;
+    min-width: 50px;
+    text-align: right;
+    border: none;
+    background-color: transparent;
+    color: white;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+}
+.input-holder button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.input-holder input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.input-holder input:focus {
+    outline: none;
+}
+
+.input-holder button:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+#confirm-button {
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+#confirm-button:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    /* Change text to Mňau. */
+}
+
+@media (max-width: 768px) {
+    .card img {
+        height: 40%;
+        width: 40%;
+    }
+    
+    .card {
+        width: 100%;
+    }
+    .button-holder {
+        flex-direction: row;
+        gap: 10px;
+    }
+}
+
+@media (min-width: 769px) {
+    .card img {
+        display: block;
+    }
+    .card {
+        height: 300px;
+    }
+    .card-holder {
+        gap: 50px;
+    }
+    .button-holder {
+        gap: 20px;
+        flex-direction: row;
+    }
+}
