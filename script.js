@@ -14,7 +14,7 @@ const vojtechInput = document.querySelector('#vojtech-input');
 const confirmButton = document.querySelector('#confirm-button');
 
 // Function to update images based on scores
-function updateScoresAndImages() {
+function updateImages() {
     if (Number(anickaScore.textContent) > Number(vojtechScore.textContent)) {
         anickaImage.src = 'images/anicka-happy.png';
         vojtechImage.src = 'images/vojtech-sad.png';
@@ -35,9 +35,30 @@ async function loadScores() {
         const data = await response.json();
         anickaScore.textContent = data.anicka;
         vojtechScore.textContent = data.vojtech;
-        updateScoresAndImages();
+        updateImages();
     } catch (error) {
         console.error('Error loading scores:', error);
+    }
+}
+
+async function updateScores(anickaIncrement, vojtechIncrement) {
+    try {
+        const response = await fetch('/api/scores', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                anicka: anickaIncrement,
+                vojtech: vojtechIncrement
+            })
+        });
+        if (!response.ok) throw new Error('Failed to update scores');
+        loadScores();
+        updateImages();
+    } catch (error) {
+        console.error('Error updating scores:', error);
+        loadScores();
     }
 }
 
@@ -78,28 +99,5 @@ confirmButton.addEventListener('click', async () => {
     anickaInput.value = 0;
     vojtechInput.value = 0;
     
-    try {
-        const response = await fetch('/api/scores', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                anicka: anickaIncrement,
-                vojtech: vojtechIncrement
-            })
-        });
-        
-        if (!response.ok) throw new Error('Failed to update scores');
-        
-        const data = await response.json();
-        anickaScore.textContent = data.anicka;
-        vojtechScore.textContent = data.vojtech;
-        updateScoresAndImages();
-    } catch (error) {
-        console.error('Error updating scores:', error);
-        alert('Chyba při ukládání skóre. Zkuste to prosím znovu.');
-        // Reload scores on error
-        loadScores();
-    }
+    updateScores(anickaIncrement, vojtechIncrement);
 });
