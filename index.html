@@ -14,11 +14,9 @@
             <p>Skóre: <span id="anicka-score">0</span></p>
             <div class="input-holder">
                 <button id="anicka-minus-button">-</button>
-                <!-- just number that can be incremented and decremented by 1 by clicking the buttons -->
                 <input type="number" id="anicka-input" value="0" type="number" disabled>
                 <button id="anicka-plus-button">+</button>
             </div>
-            <!-- <input type="checkbox" id="anicka-checkbox"> -->
         </div>
         <div class="card">
             <img id="vojtech-image" src="images/vojtech-even.png" alt="vojtech">
@@ -29,13 +27,14 @@
                 <input type="number" id="vojtech-input" value="0" type="number" disabled>
                 <button id="vojtech-plus-button">+</button>
             </div>
-            <!-- <input type="checkbox" id="vojtech-checkbox"> -->
         </div>
     </div>
     <div class="button-holder">
         <button id="confirm-button">Haf!</button>
-        <!-- <button id="reset-button">Mňau.</button> -->
     </div>
+    <script>
+        window.API_BASE_URL = 'https://palecek-backend.onrender.com';
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

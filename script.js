@@ -27,10 +27,12 @@ function updateImages() {
     }
 }
 
+const API_BASE_URL = window.API_BASE_URL || '';
+
 // Load scores from API
 async function loadScores() {
     try {
-        const response = await fetch('/api/scores');
+        const response = await fetch(`${API_BASE_URL}/api/scores`);
         if (!response.ok) throw new Error('Failed to load scores');
         const data = await response.json();
         anickaScore.textContent = data.anicka;
@@ -43,7 +45,7 @@ async function loadScores() {
 
 async function updateScores(anickaIncrement, vojtechIncrement) {
     try {
-        const response = await fetch('/api/scores', {
+        const response = await fetch(`${API_BASE_URL}/api/scores`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
